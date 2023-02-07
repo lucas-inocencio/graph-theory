@@ -3,14 +3,13 @@
 class LinkedList {
     
     public:
-        NodeLinkedList* head;
         int size;
+        NodeLinkedList *head;
 
         LinkedList();
-        ~LinkedList();
-        void insert(int, float);
         void insert(int, int);
         void insert(int, int, bool);
+        void remove_all();
 };
 
 LinkedList::LinkedList() { // O(1)
@@ -19,54 +18,43 @@ LinkedList::LinkedList() { // O(1)
     size = 0;
 }
 
-LinkedList::~LinkedList() {
+void LinkedList::insert(int new_id, int new_capacity) { // O(1)
 
-	NodeLinkedList *currNode = head;
-	NodeLinkedList *nextNode = nullptr;
+    if (size == 0) {
+        head = new NodeLinkedList(new_id, new_capacity);
+    } else {
+        NodeLinkedList* new_node = new NodeLinkedList(new_id, new_capacity);
+        new_node->next = head;
+        head= new_node;
+    }
+    
+    size++;
+}
+
+void LinkedList::insert(int new_id, int new_capacity, bool new_reverse) { // O(1)
+
+    if (size == 0) {
+        head = new NodeLinkedList(new_id, new_capacity, new_reverse);
+    } else {
+        NodeLinkedList* new_node = new NodeLinkedList(new_id, new_capacity, new_reverse);
+        new_node->next = head;
+        head= new_node;
+    }
+    
+    size++;
+}
+
+void LinkedList::remove_all() {
+
+	NodeLinkedList *current = head;
+	NodeLinkedList *temp = nullptr;
 	
-	while (currNode != nullptr) {
-		nextNode = currNode->next_node;
-		delete currNode;
-		currNode = nextNode;
+	while (current != nullptr) {
+		temp = current->next;
+		delete current;
+		current = temp;
 	}
+
 	head = nullptr;
-}
-
-void LinkedList::insert(int new_data_int, float new_data_float) { // O(1)
-
-    if (head == nullptr) {
-        head = new NodeLinkedList(new_data_int, new_data_float);
-    } else {
-        NodeLinkedList* new_node = new NodeLinkedList(new_data_int, new_data_float);
-        new_node->next_node = head;
-        this->head= new_node;
-    }
-    
-    size++;
-}
-
-void LinkedList::insert(int new_data_int, int new_capacity) { // O(1)
-
-    if (head == nullptr) {
-        head = new NodeLinkedList(new_data_int, new_capacity);
-    } else {
-        NodeLinkedList* new_node = new NodeLinkedList(new_data_int, new_capacity);
-        new_node->next_node = head;
-        this->head= new_node;
-    }
-    
-    size++;
-}
-
-void LinkedList::insert(int new_data_int, int new_capacity, bool new_reverse) { // O(1)
-
-    if (head == nullptr) {
-        head = new NodeLinkedList(new_data_int, new_capacity, new_reverse);
-    } else {
-        NodeLinkedList* new_node = new NodeLinkedList(new_data_int, new_capacity, new_reverse);
-        new_node->next_node = head;
-        this->head= new_node;
-    }
-    
-    size++;
+    size = 0;
 }
