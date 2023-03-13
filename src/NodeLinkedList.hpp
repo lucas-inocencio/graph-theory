@@ -1,36 +1,25 @@
-class NodeLinkedList {
+class NodeLinkedList
+{
+public:
+    int id_;
+    int capacity_;
+    int allocation_flow_;
+    bool is_reverse_;
+    NodeLinkedList *next_;
 
-    public:
-        int id, capacity, allocation_flow;
-        bool isReverse;
-        NodeLinkedList *next;
+    NodeLinkedList() : id_{0}, capacity_{0}, allocation_flow_{0}, is_reverse_{false}, next_{nullptr} {}
+    NodeLinkedList(int id, int capacity) : id_{id}, capacity_{capacity}, allocation_flow_{0}, is_reverse_{false}, next_{nullptr} {}
+    NodeLinkedList(int id, int capacity, bool is_reverse) : id_{id}, capacity_{capacity}, allocation_flow_{0}, is_reverse_{is_reverse}, next_{nullptr} {}
 
-        NodeLinkedList();
-        NodeLinkedList(int, int);
-        NodeLinkedList(int, int, bool);
+    int id() const { return id_; }
+    int capacity() const { return capacity_; }
+    int allocation_flow() const { return allocation_flow_; }
+    bool is_reverse() const { return is_reverse_; }
+    NodeLinkedList *next() const { return next_; }
+
+    void set_id(int id) { id_ = id; }
+    void set_capacity(int capacity) { capacity_ = capacity; }
+    void set_allocation_flow(int allocation_flow) { allocation_flow_ = allocation_flow; }
+    void set_is_reverse(bool is_reverse) { is_reverse_ = is_reverse; }
+    void set_next(NodeLinkedList *next) { next_ = next; }
 };
-
-NodeLinkedList::NodeLinkedList() {
-
-    id = 0;
-    capacity = 0;
-    allocation_flow = 0;
-    isReverse = false;
-    next = nullptr;
-}
-
-NodeLinkedList::NodeLinkedList(int new_id, int new_capacity) { // O(1)
-    
-    id = new_id;
-    capacity = new_capacity;
-    allocation_flow = 0;
-    next = nullptr;
-}
-
-NodeLinkedList::NodeLinkedList(int new_id, int new_capacity, bool new_reverse) { // O(1)
-    
-    id = new_id;
-    capacity = new_capacity;
-    isReverse = new_reverse;
-    next = nullptr;
-}
