@@ -20,7 +20,7 @@ class Graph
 public:
     int number_vertex;
     int *parent;
-    bool *reverse_path, *label;
+    bool *reverse_path, *label, *reverse_edge, *visited;
     AdjacencyList *representation;
     LinkedList *residual, *path;
 
@@ -44,7 +44,7 @@ Graph::Graph()
 }
 
 void Graph::builder_adjacency_list(std::string file_name, std::string type)
-{ // O(V+E)
+{
 
     representation = new AdjacencyList(file_name, type);
     number_vertex = representation->number_vertex;
@@ -56,11 +56,11 @@ void Graph::builder_adjacency_list(std::string file_name, std::string type)
 }
 
 void Graph::breadth_first_search(int root, int delta)
-{ // O(V+E)
+{
 
     int next_vertex;
     std::queue<int> discovered;
-    NodeLinkedList *adjacent_vertex;
+    LinkedListNode *adjacent_vertex;
 
     for (int i = 0; i < number_vertex; i++)
     {
@@ -121,13 +121,13 @@ void Graph::find_path(int target)
 }
 
 void Graph::uniform_cost_search_array(int source, int target)
-{ // O(Ve2)
+{
 
     float *distance = new float[number_vertex]{};
     float *discovered = new float[number_vertex]{};
     int *parent = new int[number_vertex]{};
     int next_vertex, index_min;
-    NodeLinkedList *adjacent_vertex;
+    LinkedListNode *adjacent_vertex;
 
     for (int i = 0; i < number_vertex; i++)
     {
@@ -182,12 +182,12 @@ void Graph::uniform_cost_search_array(int source, int target)
 }
 
 void Graph::uniform_cost_search_heap(int source, int target)
-{ // O((V+E)logV)
+{
 
     float *distance = new float[number_vertex]{};
     int *parent = new int[number_vertex]{};
     BinaryHeap discovered(number_vertex);
-    NodeLinkedList *adjacent_vertex;
+    LinkedListNode *adjacent_vertex;
     int next_vertex;
 
     for (int i = 0; i < number_vertex; i++)
@@ -243,7 +243,7 @@ void Graph::find_mst_heap(int source)
     float *distance = new float[number_vertex]{};
     int *parent = new int[number_vertex]{};
     BinaryHeap discovered(number_vertex);
-    NodeLinkedList *adjacent_vertex;
+    LinkedListNode *adjacent_vertex;
     int next_vertex;
 
     for (int i = 0; i < number_vertex; i++)
@@ -313,7 +313,7 @@ int Graph::find_bottleneck(int source, int target)
     {
 
         int bottleneck = 1000000000;
-        NodeLinkedList *walk_path, *walk_residual;
+        LinkedListNode *walk_path, *walk_residual;
 
         walk_path = path->head;
         int next_vertex;
@@ -358,7 +358,7 @@ int Graph::find_bottleneck(int source, int target)
 int Graph::find_max_flow(int source, int target)
 {
 
-    NodeLinkedList *curr_path, *residual_original, *residual_reverse, *graph_original, *out_capacity;
+    LinkedListNode *curr_path, *residual_original, *residual_reverse, *graph_original, *out_capacity;
     int bottleneck, next_vertex, adjacent_vertex;
     int max_flow = 0;
     int delta = 0;
@@ -421,7 +421,7 @@ int Graph::find_max_flow(int source, int target)
 AdjacencyList *Graph::find_netflow(int source, int target, std::string write)
 {
 
-    NodeLinkedList *curr_path, *residual_original, *residual_reverse, *graph_original, *out_capacity;
+    LinkedListNode *curr_path, *residual_original, *residual_reverse, *graph_original, *out_capacity;
     int bottleneck, next_vertex, adjacent_vertex;
     int max_flow = 0;
     int delta = 0;

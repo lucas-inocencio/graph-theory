@@ -1,5 +1,5 @@
-#include "NodeBinaryHeap.hpp"
-#include "NodeLinkedList.hpp"
+#include "BinaryHeapNode.hpp"
+#include "LinkedListNode.hpp"
 
 class NodeFactory
 {
@@ -8,9 +8,9 @@ class NodeFactory
         switch (type)
         {
         case 'BinaryHeap':
-            return new NodeBinaryHeap(value);
+            return new BinaryHeapNode(value);
         case 'LinkedList':
-            return new NodeLinkedList(value);
+            return new LinkedListNode(value);
         default:
             throw new Error(`Invalid node type
                             : $ { type }`);

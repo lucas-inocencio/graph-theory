@@ -1,10 +1,10 @@
-#include "NodeLinkedList.hpp"
+#include "LinkedListNode.hpp"
 
 class LinkedList {
     
     public:
         int size;
-        NodeLinkedList *head;
+        LinkedListNode *head;
 
         LinkedList();
         void insert(int, int);
@@ -12,18 +12,18 @@ class LinkedList {
         void remove_all();
 };
 
-LinkedList::LinkedList() { // O(1)
+LinkedList::LinkedList() {
 
     head = nullptr;
     size = 0;
 }
 
-void LinkedList::insert(int new_id, int new_capacity) { // O(1)
+void LinkedList::insert(int new_id, int new_capacity) {
 
     if (size == 0) {
-        head = new NodeLinkedList(new_id, new_capacity);
+        head = new LinkedListNode(new_id, new_capacity);
     } else {
-        NodeLinkedList* new_node = new NodeLinkedList(new_id, new_capacity);
+        LinkedListNode* new_node = new LinkedListNode(new_id, new_capacity);
         new_node->next = head;
         head= new_node;
     }
@@ -31,12 +31,12 @@ void LinkedList::insert(int new_id, int new_capacity) { // O(1)
     size++;
 }
 
-void LinkedList::insert(int new_id, int new_capacity, bool new_reverse) { // O(1)
+void LinkedList::insert(int new_id, int new_capacity, bool new_reverse) {
 
     if (size == 0) {
-        head = new NodeLinkedList(new_id, new_capacity, new_reverse);
+        head = new LinkedListNode(new_id, new_capacity, new_reverse);
     } else {
-        NodeLinkedList* new_node = new NodeLinkedList(new_id, new_capacity, new_reverse);
+        LinkedListNode* new_node = new LinkedListNode(new_id, new_capacity, new_reverse);
         new_node->next = head;
         head= new_node;
     }
@@ -46,8 +46,8 @@ void LinkedList::insert(int new_id, int new_capacity, bool new_reverse) { // O(1
 
 void LinkedList::remove_all() {
 
-	NodeLinkedList *current = head;
-	NodeLinkedList *temp = nullptr;
+	LinkedListNode *current = head;
+	LinkedListNode *temp = nullptr;
 	
 	while (current != nullptr) {
 		temp = current->next;
