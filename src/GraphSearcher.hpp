@@ -4,7 +4,7 @@
 #include <queue>
 #include <stack>
 
-#include "./Representations/AdjacencyList.hpp"
+#include "./representations/AdjacencyList.hpp"
 
 /**
  * @brief A class that implements search algorithms on an adjacency list graph.
@@ -56,7 +56,6 @@ void GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
         }
     }
 }
-
 
 /**
  * @brief Perform a depth-first search on the specified graph, starting from the given root vertex.
