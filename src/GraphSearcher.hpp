@@ -12,8 +12,8 @@
 class GraphSearcher
 {
 public:
-    void breadth_first_search(AdjacencyList *, int);
-    void depth_first_search(AdjacencyList *, int);
+    int *breadth_first_search(AdjacencyList *, int);
+    int *depth_first_search(AdjacencyList *, int);
 };
 
 /**
@@ -21,16 +21,16 @@ public:
  * @param graph Pointer to the adjacency list representing the graph.
  * @param root The id (value) of the root vertex to start the search from.
  */
-void GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
+int *GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
 {
     int next_vertex;
     std::queue<int> discovered;
     LinkedListNode *adjacent_vertex;
 
-    int *parent = new int[graph->size]{};
-    bool *visited = new bool[graph->size]{};
+    int *parent = new int[graph->num_vertices]{};
+    bool *visited = new bool[graph->num_vertices]{};
 
-    for (int i = 0; i < graph->size; i++)
+    for (int i = 0; i < graph->num_vertices; i++)
     {
         parent[i] = -1;
         visited[i] = false;
@@ -44,7 +44,7 @@ void GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
         next_vertex = discovered.front();
         discovered.pop();
         adjacent_vertex = graph->array[next_vertex - 1].head;
-        for (int i = 0; i < graph->array[next_vertex - 1].size; i++)
+        for (int i = 0; i < graph->array[next_vertex - 1].num_vertices; i++)
         {
             if (visited[adjacent_vertex->value - 1] == false)
             {
@@ -62,16 +62,16 @@ void GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
  * @param graph Pointer to the adjacency list representing the graph.
  * @param root The id (value) of the root vertex to start the search from.
  */
-void GraphSearcher::depth_first_search(AdjacencyList *graph, int root)
+int *GraphSearcher::depth_first_search(AdjacencyList *graph, int root)
 {
     int next_vertex;
     std::stack<int> discovered;
     LinkedListNode *adjacent_vertex;
 
-    int *parent = new int[graph->size]{};
-    bool *visited = new bool[graph->size]{};
+    int *parent = new int[graph->num_vertices]{};
+    bool *visited = new bool[graph->num_vertices]{};
 
-    for (int i = 0; i < graph->size; i++)
+    for (int i = 0; i < graph->num_vertices; i++)
     {
         parent[i] = -1;
         visited[i] = false;
@@ -85,7 +85,7 @@ void GraphSearcher::depth_first_search(AdjacencyList *graph, int root)
         next_vertex = discovered.top();
         discovered.pop();
         adjacent_vertex = graph->array[next_vertex - 1].head;
-        for (int i = 0; i < graph->array[next_vertex - 1].size; i++)
+        for (int i = 0; i < graph->array[next_vertex - 1].num_vertices; i++)
         {
             if (visited[adjacent_vertex->value - 1] == false)
             {
@@ -96,6 +96,8 @@ void GraphSearcher::depth_first_search(AdjacencyList *graph, int root)
             adjacent_vertex = adjacent_vertex->next;
         }
     }
+
+    return parent;
 }
 
 #endif
