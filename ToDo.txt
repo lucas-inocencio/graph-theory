@@ -3,7 +3,7 @@ AdjacencyMatrix
 AdjacencyList
 IncidenceMatrix
 
-Common Algorithms:
+Classic Algorithms:
 BreadthFirstSearch
 DepthFirstSearch
 BestFirstSearch
@@ -16,7 +16,7 @@ Prim
 Kruskal
 StronglyConnectedComponents
 
-Supplementary Algorithms:
+Extra Algorithms:
 DenseOrSparse
 TransposeGraph
 SquareGraph

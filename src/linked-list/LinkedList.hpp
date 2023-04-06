@@ -1,9 +1,4 @@
-/**
- * @file LinkedList.hpp
- * @brief Definition of the LinkedList class.
- */
-#ifndef LINKED_LIST_HPP
-#define LINKED_LIST_HPP
+#pragma once
 
 #include "LinkedListNode.hpp"
 
@@ -15,7 +10,6 @@
  */
 class LinkedList
 {
-
 public:
     int size;
     LinkedListNode *head;
@@ -24,9 +18,11 @@ public:
     void insert(int);
 };
 
+/**
+ * @brief Constructor for a Empty LinkedList.
+ */
 LinkedList::LinkedList()
 {
-
     head = nullptr;
     size = 0;
 }
@@ -37,7 +33,6 @@ LinkedList::LinkedList()
  */
 void LinkedList::insert(int value)
 {
-
     if (size == 0)
     {
         head = new LinkedListNode(value);
@@ -47,7 +42,6 @@ void LinkedList::insert(int value)
         LinkedListNode *node = new LinkedListNode(value);
         node->next = head;
         head = node;
+        size++;
     }
 }
-
-#endif

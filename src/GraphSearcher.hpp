@@ -1,5 +1,4 @@
-#ifndef GRAPH_SEARCHER_HPP
-#define GRAPH_SEARCHER_HPP
+#pragma once
 
 #include <fstream>
 #include <queue>
@@ -155,5 +154,3 @@ int GraphSearcher::diameter(AdjacencyList *graph)
     
     
 }
-
-#endif

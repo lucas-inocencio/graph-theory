@@ -1,13 +1,9 @@
-/**
- * @file AdjacencyList.hpp
- * @brief Declaration of the AdjacencyListclass, which represents an adjacency list for a graph.
- */
-#ifndef ADJACENCY_LIST_HPP
-#define ADJACENCY_LIST_HPP
+#pragma once
 
-#include <bits/stdc++.h>
+#include <algorithm>
 #include <fstream>
 #include <string>
+#include <vector>
 
 #include "../linked-list/LinkedList.hpp"
 
@@ -20,10 +16,9 @@
  */
 class AdjacencyList
 {
-
 public:
     int num_vertices, num_edges;
-    LinkedList *array;
+    std::vector<LinkedList> adjacency_list;
 
     AdjacencyList(std::string);
     int get_num_vertices();
@@ -35,23 +30,22 @@ public:
 };
 
 /**
- * @brief Constructs an adjacency list from a file.
+ * @brief Constructs an undirected unweighted adjacency list from a file.
  * @param file_name The name of the file containing the graph data.
  */
 AdjacencyList::AdjacencyList(std::string file_name)
 {
-
     int vertex, adjacent_vertex;
-    std::ifstream infile(file_name);
 
+    std::ifstream infile(file_name);
     infile >> num_vertices;
-    array = new LinkedList[num_vertices]();
+    adjacency_list = std::vector<LinkedList>(num_vertices);
 
     while (infile >> vertex >> adjacent_vertex)
     {
-        array[vertex - 1].insert(adjacent_vertex);
-        array[adjacent_vertex - 1].insert(vertex);
-        this->num_edges += 1;
+        adjacency_list[vertex - 1].insert(adjacent_vertex);
+        adjacency_list[adjacent_vertex - 1].insert(vertex);
+        num_edges++;
     }
 
     infile.close();
@@ -59,38 +53,35 @@ AdjacencyList::AdjacencyList(std::string file_name)
 
 /**
  * Gets the number of vertices in the graph represented by the adjacency list.
- *
  * @return The number of vertices in the graph.
  */
 int AdjacencyList::get_num_vertices()
 {
-    return this->num_vertices;
+    return num_vertices;
 }
 
 /**
  * Gets the number of edges in the graph represented by the adjacency list.
- *
  * @return The number of edges in the graph.
  */
 int AdjacencyList::get_num_edges()
 {
-    return this->num_edges;
+    return num_edges;
 }
 
 /**
  * Calculates the min degree of the graph represented by the adjacency list.
- *
  * @return The min degree of the graph.
  */
 int AdjacencyList::min_degree()
 {
-    int min = this->array[0].size;
+    int min = adjacency_list[0].size;
 
     for (int i = 0; i < num_vertices; i++)
     {
-        if (min > this->array[i].size)
+        if (min > adjacency_list[i].size)
         {
-            min = this->array[i].size;
+            min = adjacency_list[i].size;
         }
     }
 
@@ -99,18 +90,17 @@ int AdjacencyList::min_degree()
 
 /**
  * Calculates the max degree of the graph represented by the adjacency list.
- *
  * @return The max degree of the graph.
  */
 int AdjacencyList::max_degree()
 {
-    int max = this->array[0].size;
+    int max = adjacency_list[0].size;
 
     for (int i = 0; i < num_vertices; i++)
     {
-        if (max < this->array[i].size)
+        if (max < adjacency_list[i].size)
         {
-            max = this->array[i].size;
+            max = adjacency_list[i].size;
         }
     }
 
@@ -119,7 +109,6 @@ int AdjacencyList::max_degree()
 
 /**
  * Calculates the mean degree of the graph represented by the adjacency list.
- *
  * @return The mean degree of the graph.
  */
 int AdjacencyList::mean_degree()
@@ -128,41 +117,36 @@ int AdjacencyList::mean_degree()
 
     for (int i = 0; i < num_vertices; i++)
     {
-        mean += this->array->size;
+        mean += adjacency_list[i].size;
     }
 
-    mean /= num_vertices
+    mean /= num_vertices;
 
-        return mean;
+    return mean;
 }
 
 /**
  * Calculates the median degree of the graph represented by the adjacency list.
- *
  * @return The median degree of the graph.
  */
 int AdjacencyList::median_degree()
 {
-    int *temp_array = new int[num_vertices]();
     int median_index = num_vertices / 2;
+    std::vector<int> degree_list = std::vector<int>(num_vertices);
 
     for (int i = 0; i < num_vertices; i++)
     {
-        temp_array[i] = this->array[i].size();
+        degree_list[i] = adjacency_list[i].size;
     }
 
-    std::sort(temp_array, temp_array + num_vertices);
+    std::sort(degree_list.begin(), degree_list.end());
 
     if (num_vertices % 2 == 0)
     {
-        return (temp_array[median_index - 1] + temp_array[median_index]) / 2;
+        return (degree_list[median_index - 1] + degree_list[median_index]) / 2;
     }
     else
     {
-        return temp_array[median_index];
+        return degree_list[median_index];
     }
-
-    delete[] temp_array;
 }
-
-#endif
