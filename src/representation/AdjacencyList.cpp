@@ -1,4 +1,4 @@
-#include <AdjacencyList.hpp>
+#include "AdjacencyList.hpp"
 
 /**
  * @brief Constructs an undirected unweighted adjacency list from a file.
@@ -120,23 +120,4 @@ int AdjacencyList::median_degree()
     {
         return degree_list[median_index];
     }
-}
-
-/*
- *
- *
- */
-int AdjacencyList::min_degree()
-{
-    int min = adjacency_list[0].size();
-
-    for (int i = 1; i < num_vertices; i++)
-    {
-        if (min > adjacency_list[i].size())
-        {
-            min = adjacency_list[i].size();
-        }
-    }
-
-    return min;
 }
