@@ -14,7 +14,23 @@ AdjacencyMatrix::AdjacencyMatrix()
  * @brief Reads a graph from a file and stores it in the adjacency matrix.
  * @param file_name The name of the file containing the graph.
  */
-void AdjacencyMatrix::read_from_file(std::string file_name)
+void AdjacencyMatrix::read_from_file(std::string file_name, std::string type)
+{
+    if (type == "undirected_unweighted")
+    {
+        read_undirected_unweighted(file_name);
+    }
+    else
+    {
+        std::cout << "Invalid graph type." << std::endl;
+    }
+}
+
+/**
+ * @brief Reads an undirected unweighted graph from a file and stores it in the adjacency matrix.
+ * @param file_name The name of the file containing the graph.
+ */
+void AdjacencyMatrix::read_undirected_unweighted(std::string file_name)
 {
     int vertex, adjacent_vertex;
 
@@ -25,8 +41,9 @@ void AdjacencyMatrix::read_from_file(std::string file_name)
 
     while (infile >> vertex >> adjacent_vertex)
     {
-        adjacency_matrix[vertex-1][adjacent_vertex-1] = true;
-        adjacency_matrix[adjacent_vertex-1][vertex-1] = true;
+        adjacency_matrix[vertex - 1][adjacent_vertex - 1] = true;
+        adjacency_matrix[adjacent_vertex - 1][vertex - 1] = true;
+        num_edges++;
         num_edges++;
     }
 
@@ -91,7 +108,7 @@ int AdjacencyMatrix::min_degree()
  */
 int AdjacencyMatrix::max_degree()
 {
-    int max = 0; 
+    int max = 0;
     int temp = 0;
 
     for (int i = 0; i < num_vertices; i++)
@@ -124,18 +141,7 @@ double AdjacencyMatrix::mean_degree()
 {
     double mean = 0;
 
-    for (int i = 0; i < num_vertices; i++)
-    {
-        for (int j = 0; j < num_vertices; j++)
-        {
-            if (adjacency_matrix[i][j] == true)
-            {
-                mean++;
-            }
-        }
-    }
-
-    mean /= num_vertices;
+    mean = (num_edges) / num_vertices;
 
     return mean;
 }
@@ -170,5 +176,20 @@ int AdjacencyMatrix::median_degree()
     else
     {
         return degree_list[median_index];
+    }
+}
+
+/**
+ * @brief Print the adjacency matrix.
+ */
+void AdjacencyMatrix::print()
+{
+    for (int i = 0; i < num_vertices; i++)
+    {
+        for (int j = 0; j < num_vertices; j++)
+        {
+            std::cout << adjacency_matrix[i][j] << " ";
+        }
+        std::cout << std::endl;
     }
 }

@@ -15,6 +15,6 @@ public:
     LinkedListNode *head;
 
     LinkedList();
-    ~LinkedList() = default;
+    ~LinkedList();
     void insert(int);
 };

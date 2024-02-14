@@ -10,6 +10,22 @@ LinkedList::LinkedList()
 }
 
 /**
+ * @brief Destructor for LinkedList class.
+ */
+LinkedList::~LinkedList()
+{
+    LinkedListNode *current = head;
+    LinkedListNode *next;
+
+    while (current != nullptr)
+    {
+        next = current->next;
+        delete current;
+        current = next;
+    }
+}
+
+/**
  * @brief Inserts a new element at the head of the list.
  * @param value The value of the element to insert.
  */

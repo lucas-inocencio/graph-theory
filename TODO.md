@@ -1,8 +1,8 @@
 # TODO List for Graphs Library in C++ 20 (STL)
 
 ## Representations
-- [ ] AdjacencyMatrix
-- [ ] AdjacencyList
+- [✓] AdjacencyMatrix
+- [✓] AdjacencyList
 - [ ] IncidenceMatrix
 
 ## Classic Algorithms
