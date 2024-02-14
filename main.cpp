@@ -1,18 +1,21 @@
 #include <iostream>
+#include <string>
 
-#include "./src/linked-list/LinkedListNode.hpp"
+#include "./src/representation/AdjacencyMatrix.hpp"
 
 using namespace std;
 
 int main()
 {
-    LinkedListNode *node1 = new LinkedListNode(1);
-    LinkedListNode *node2 = new LinkedListNode(2, node1);
-    LinkedListNode *node3 = new LinkedListNode(3, node2);
+    string file_path = "../data/undirected-unweighted/graph_1.txt";
+    AdjacencyMatrix *graph1 = new AdjacencyMatrix();
+    graph1->read_from_file(file_path);
 
-    cout << node3->value << endl;
-    cout << node3->next->value << endl;
-    cout << node3->next->next->value << endl;
+    cout << "Graph 1 has " << graph1->get_num_vertices() << " vertices and " << graph1->get_num_edges() << " edges." << endl;
+    cout << "The min degree of graph 1 is " << graph1->min_degree() << "." << endl;
+    cout << "The max degree of graph 1 is " << graph1->max_degree() << "." << endl;
+    cout << "The average degree of graph 1 is " << graph1->mean_degree() << "." << endl;
+    cout << "The median degree of graph 1 is " << graph1->median_degree() << "." << endl;
 
     return 0;
 }

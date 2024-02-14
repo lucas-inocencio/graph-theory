@@ -1,11 +1,7 @@
-CMakeFiles/
+build/
 data/directed-weighted/graph_7.txt
 data/directed-weighted/graph_8.txt
 data/undirected-unweighted/graph_4.txt
 data/undirected-unweighted/graph_5.txt
 data/undirected-weighted/graph_4.txt
 data/undirected-weighted/graph_5.txt
-cmake_install.cmake
-CMakeCache.txt
-main
-Makefile

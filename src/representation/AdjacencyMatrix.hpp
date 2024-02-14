@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <iostream>
 
 /**
  * @class AdjacencyMatrix
@@ -21,7 +22,7 @@ public:
     int get_num_vertices();
     int get_num_edges();
     int min_degree();
-    int mean_degree();
+    double mean_degree();
     int median_degree();
     int max_degree();
 };

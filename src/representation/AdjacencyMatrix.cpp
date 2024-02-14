@@ -19,13 +19,14 @@ void AdjacencyMatrix::read_from_file(std::string file_name)
     int vertex, adjacent_vertex;
 
     std::ifstream infile(file_name);
+
     infile >> num_vertices;
     adjacency_matrix = std::vector<std::vector<bool>>(num_vertices, std::vector<bool>(num_vertices, false));
 
     while (infile >> vertex >> adjacent_vertex)
     {
-        adjacency_matrix[vertex][adjacent_vertex] = true;
-        adjacency_matrix[adjacent_vertex][vertex] = true;
+        adjacency_matrix[vertex-1][adjacent_vertex-1] = true;
+        adjacency_matrix[adjacent_vertex-1][vertex-1] = true;
         num_edges++;
     }
 
@@ -90,7 +91,8 @@ int AdjacencyMatrix::min_degree()
  */
 int AdjacencyMatrix::max_degree()
 {
-    int max, temp = 0;
+    int max = 0; 
+    int temp = 0;
 
     for (int i = 0; i < num_vertices; i++)
     {
@@ -118,9 +120,9 @@ int AdjacencyMatrix::max_degree()
  *
  * @return The mean degree of the graph.
  */
-int AdjacencyMatrix::mean_degree()
+double AdjacencyMatrix::mean_degree()
 {
-    int mean = 0;
+    double mean = 0;
 
     for (int i = 0; i < num_vertices; i++)
     {
