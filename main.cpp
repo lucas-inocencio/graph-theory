@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "./src/representation/AdjacencyMatrix.hpp"
+#include "./include/AdjacencyMatrix.hpp"
 
 using namespace std;
 

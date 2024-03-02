@@ -5,7 +5,7 @@
 #include <stack>
 #include <string>
 
-#include "./representations/AdjacencyList.hpp"
+#include "AdjacencyList.hpp"
 
 /**
  * @brief A class that implements search algorithms on an adjacency list graph.

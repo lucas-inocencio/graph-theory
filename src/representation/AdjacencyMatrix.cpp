@@ -1,4 +1,4 @@
-#include "AdjacencyMatrix.hpp"
+#include "../../include/AdjacencyMatrix.hpp"
 
 /**
  * @brief Constructs an empty undirected unweighted adjacency matrix.

@@ -1,4 +1,4 @@
-#include "LinkedListNode.hpp"
+#include "../../include/LinkedListNode.hpp"
 
 /*
  * @brief Constructor for LinkedListNode class with one parameter, in case of initializing the node with no next node.

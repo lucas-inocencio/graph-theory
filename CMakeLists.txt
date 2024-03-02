@@ -12,11 +12,11 @@ set(SOURCES
 )
 
 set(HEADERS
-	./src/linked-list/LinkedList.hpp
-	./src/linked-list/LinkedListNode.hpp
-	./src/representation/AdjacencyList.hpp
-	./src/representation/AdjacencyMatrix.hpp
-	./src/representation/IncidenceMatrix.hpp
+	./include/LinkedList.hpp
+	./include/LinkedListNode.hpp
+	./include/AdjacencyList.hpp
+	./include/AdjacencyMatrix.hpp
+	./include/IncidenceMatrix.hpp
 )
 
 # Add executable target

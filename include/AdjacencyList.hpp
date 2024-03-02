@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "../linked-list/LinkedList.hpp"
+#include "LinkedList.hpp"
 
 /**
  * @class AdjacencyList

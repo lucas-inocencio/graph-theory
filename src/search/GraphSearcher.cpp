@@ -1,4 +1,4 @@
-#include "GraphSearcher.hpp"
+#include "../../include/GraphSearcher.hpp"
 
 /**
  * @brief Perform a breadth-first search on the specified graph, starting from the given root vertex.

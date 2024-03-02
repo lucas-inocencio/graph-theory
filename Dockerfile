@@ -11,4 +11,4 @@ COPY . /app
 EXPOSE 80
 
 # Run main.cpp when the container launches
-CMD ["g++", "main.cpp", "-o", "main", "&&", "./main"]
+CMD ["cd build", "cmake ..", "make", "./main"]

@@ -1,4 +1,4 @@
-#include "AdjacencyList.hpp"
+#include "../../include/AdjacencyList.hpp"
 
 /**
  * @brief Constructs an undirected unweighted adjacency list from a file.
