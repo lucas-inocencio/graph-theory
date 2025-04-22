@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 
-#include "./include/AdjacencyMatrix.hpp"
+#include "./src/representation/AdjacencyMatrix.cpp"
 
 using namespace std;
 
 int main()
 {
-    string file_name = "../data/example.txt";
+    string file_name = "./data/example.txt";
     string type = "undirected_unweighted";
     AdjacencyMatrix *graph1 = new AdjacencyMatrix();
     graph1->read_from_file(file_name, type);
