@@ -9,7 +9,6 @@ public:
     int value;
     LinkedListNode *next;
 
-    LinkedListNode(int);
-    LinkedListNode(int, LinkedListNode *);
+    LinkedListNode(int, LinkedListNode * = nullptr);
     ~LinkedListNode() = default;
 };
