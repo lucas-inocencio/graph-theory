@@ -8,9 +8,9 @@
 
 ## Classic Algorithms
 
-- [ ] BreadthFirstSearch
-- [ ] DepthFirstSearch
-- [ ] BestFirstSearch
+- [x] BreadthFirstSearch
+- [x] DepthFirstSearch
+- [x] BestFirstSearch
 - [ ] AStarSearch
 - [ ] Dijkstra
 - [ ] TopologicalSorting
@@ -26,5 +26,5 @@
 - [ ] TransposeGraph
 - [ ] SquareGraph
 - [ ] UniversalSink
-- [ ] Diameter
+- [x] Diameter
 - [ ] Semiconnected

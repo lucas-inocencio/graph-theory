@@ -18,4 +18,5 @@ public:
     int distance(AdjacencyList *, int, int);
     int diameter(AdjacencyList *);
     void write_parent_file(int *, int, std::string);
+    int *best_first_search(AdjacencyList *, int);
 };

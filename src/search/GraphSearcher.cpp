@@ -108,7 +108,7 @@ void GraphSearcher::write_parent_file(int *parent, int root, std::string file_na
             level++;
         }
 
-        outfile << "Vertice:" << i+1 << "Parent:" << parent[i] << "Level:" << level << std::endl;
+        outfile << "Vertice:" << i + 1 << "Parent:" << parent[i] << "Level:" << level << std::endl;
     }
 
     outfile.close();
@@ -128,9 +128,75 @@ int GraphSearcher::distance(AdjacencyList *graph, int root, int vertex)
 
     return level;
 }
-
+/*
+ * @brief Calculate the diameter of the graph represented by the adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ * @return The diameter of the graph.
+ */
 int GraphSearcher::diameter(AdjacencyList *graph)
 {
-    
-    
+    int max_distance = 0;
+    int *parent = breadth_first_search(graph, 1);
+
+    for (int i = 0; i < graph->num_vertices; i++)
+    {
+        int distance = 0;
+        int child = parent[i];
+        while (child != 1)
+        {
+            child = parent[child - 1];
+            distance++;
+        }
+        if (distance > max_distance)
+        {
+            max_distance = distance;
+        }
+    }
+
+    return max_distance;
+}
+
+/*
+ * @brief Best First Search algorithm.
+ * @ details This function implements the Best First Search algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::best_first_search(AdjacencyList *graph, int root)
+{
+    int next_vertex;
+    std::priority_queue<int, std::vector<int>, std::greater<int>> discovered;
+    LinkedListNode *adjacent_vertex;
+
+    int *parent = new int[graph->num_vertices]{};
+    bool *visited = new bool[graph->num_vertices]{};
+
+    for (int i = 0; i < graph->num_vertices; i++)
+    {
+        parent[i] = -1;
+        visited[i] = false;
+    }
+    discovered.push(root);
+    visited[root - 1] = true;
+    parent[root - 1] = 0;
+
+    while (discovered.empty() == false)
+    {
+        next_vertex = discovered.top();
+        discovered.pop();
+        adjacent_vertex = graph->array[next_vertex - 1].head;
+        for (int i = 0; i < graph->array[next_vertex - 1].size; i++)
+        {
+            if (visited[adjacent_vertex->value - 1] == false)
+            {
+                visited[adjacent_vertex->value - 1] = true;
+                discovered.push(adjacent_vertex->value);
+                parent[adjacent_vertex->value - 1] = next_vertex;
+            }
+            adjacent_vertex = adjacent_vertex->next;
+        }
+    }
+
+    delete[] visited;
+
+    return parent;
 }
