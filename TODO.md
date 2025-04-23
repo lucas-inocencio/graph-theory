@@ -1,11 +1,13 @@
 # TODO List for Graphs Library in C++ 20 (STL)
 
 ## Representations
-- [ ] AdjacencyMatrix
-- [ ] AdjacencyList
-- [ ] IncidenceMatrix
+
+- [x] AdjacencyMatrix
+- [x] AdjacencyList
+- [x] IncidenceMatrix
 
 ## Classic Algorithms
+
 - [ ] BreadthFirstSearch
 - [ ] DepthFirstSearch
 - [ ] BestFirstSearch
@@ -19,6 +21,7 @@
 - [ ] StronglyConnectedComponents
 
 ## Extra Algorithms
+
 - [ ] DenseOrSparse
 - [ ] TransposeGraph
 - [ ] SquareGraph

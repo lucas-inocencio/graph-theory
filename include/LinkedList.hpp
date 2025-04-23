@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include "LinkedListNode.hpp"
 
 /**
@@ -17,4 +19,5 @@ public:
     LinkedList();
     ~LinkedList();
     void insert(int);
+    void print();
 };

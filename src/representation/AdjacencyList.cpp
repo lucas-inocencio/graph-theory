@@ -1,10 +1,37 @@
 #include "../../include/AdjacencyList.hpp"
 
+/*
+ *
+ */
+AdjacencyList::AdjacencyList()
+{
+    num_vertices = 0;
+    num_edges = 0;
+    adjacency_list = std::vector<LinkedList>();
+}
+
+/*
+ * @brief Reads a graph from a file and constructs the adjacency list.
+ * @param file_name The name of the file containing the graph data.
+ * @param type The type of the graph (e.g., "undirected_unweighted").
+ */
+void AdjacencyList::read_from_file(std::string file_name, std::string type)
+{
+    if (type == "undirected_unweighted")
+    {
+        read_undirected_unweighted(file_name);
+    }
+    else
+    {
+        std::cout << "Invalid graph type." << std::endl;
+    }
+}
+
 /**
  * @brief Constructs an undirected unweighted adjacency list from a file.
  * @param file_name The name of the file containing the graph data.
  */
-AdjacencyList::AdjacencyList(std::string file_name)
+void AdjacencyList::read_undirected_unweighted(std::string file_name)
 {
     int vertex, adjacent_vertex;
 
@@ -119,5 +146,17 @@ int AdjacencyList::median_degree()
     else
     {
         return degree_list[median_index];
+    }
+}
+
+/**
+ * Prints the adjacency list of the graph.
+ */
+void AdjacencyList::print()
+{
+    for (int i = 0; i < num_vertices; i++)
+    {
+        std::cout << i + 1 << ": ";
+        adjacency_list[i].print();
     }
 }

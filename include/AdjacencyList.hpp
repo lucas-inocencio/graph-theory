@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -22,7 +23,9 @@ public:
     int num_vertices, num_edges;
     std::vector<LinkedList> adjacency_list;
 
-    AdjacencyList(std::string);
+    AdjacencyList();
+    void read_from_file(std::string, std::string);
+    void read_undirected_unweighted(std::string);
     ~AdjacencyList() = default;
     int get_num_vertices();
     int get_num_edges();
@@ -30,4 +33,5 @@ public:
     int mean_degree();
     int median_degree();
     int max_degree();
+    void print();
 };

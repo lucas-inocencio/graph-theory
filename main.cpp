@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "./include/AdjacencyMatrix.hpp"
+#include "./include/IncidenceMatrix.hpp"
 
 using namespace std;
 
@@ -9,7 +9,7 @@ int main()
 {
     string file_name = "./data/example.txt";
     string type = "undirected_unweighted";
-    AdjacencyMatrix *graph1 = new AdjacencyMatrix();
+    IncidenceMatrix *graph1 = new IncidenceMatrix();
     graph1->read_from_file(file_name, type);
 
     cout << "Graph 1 has " << graph1->get_num_vertices() << " vertices and " << graph1->get_num_edges() << " edges." << endl;

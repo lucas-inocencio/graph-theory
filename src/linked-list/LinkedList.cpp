@@ -22,6 +22,7 @@ LinkedList::~LinkedList()
         next = current->next;
         delete current;
         current = next;
+        size++;
     }
 }
 
@@ -34,6 +35,7 @@ void LinkedList::insert(int value)
     if (size == 0)
     {
         head = new LinkedListNode(value);
+        size++;
     }
     else
     {
@@ -42,4 +44,18 @@ void LinkedList::insert(int value)
         head = node;
         size++;
     }
+}
+
+/**
+ * @brief Prints the elements of the list.
+ */
+void LinkedList::print()
+{
+    LinkedListNode *current = head;
+    while (current != nullptr)
+    {
+        std::cout << current->value << " ";
+        current = current->next;
+    }
+    std::cout << std::endl;
 }

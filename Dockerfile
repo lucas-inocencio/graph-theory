@@ -10,5 +10,8 @@ COPY . /app
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
+# install cmake
+RUN apt-get update && apt-get install -y cmake
+
 # Run main.cpp when the container launches
-CMD ["/bin/sh", "-c", "mkdir -p build && cd build && cmake .. && make && ./main"]
+CMD ["/bin/sh", "-c", "cmake . && make && ./main"]

@@ -16,3 +16,7 @@ g++ main.cpp
 
 docker build --tag 'graph_theory' .
 docker run --detach 'graph_theory'
+
+cmake .
+make
+./main
