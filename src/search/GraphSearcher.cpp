@@ -7,42 +7,7 @@
  */
 int *GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
 {
-    int next_vertex;
-    std::queue<int> discovered;
-    LinkedListNode *adjacent_vertex;
-
-    int *parent = new int[graph->num_vertices]{};
-    bool *visited = new bool[graph->num_vertices]{};
-
-    for (int i = 0; i < graph->num_vertices; i++)
-    {
-        parent[i] = -1;
-        visited[i] = false;
-    }
-    discovered.push(root);
-    visited[root - 1] = true;
-    parent[root - 1] = 0;
-
-    while (discovered.empty() == false)
-    {
-        next_vertex = discovered.front();
-        discovered.pop();
-        adjacent_vertex = graph->array[next_vertex - 1].head;
-        for (int i = 0; i < graph->array[next_vertex - 1].size; i++)
-        {
-            if (visited[adjacent_vertex->value - 1] == false)
-            {
-                visited[adjacent_vertex->value - 1] = true;
-                discovered.push(adjacent_vertex->value);
-                parent[adjacent_vertex->value - 1] = next_vertex;
-            }
-            adjacent_vertex = adjacent_vertex->next;
-        }
-    }
-
-    delete[] visited;
-
-    return parent;
+    // Initialize the queue and the parent array
 }
 
 /**
@@ -52,42 +17,7 @@ int *GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
  */
 int *GraphSearcher::depth_first_search(AdjacencyList *graph, int root)
 {
-    int next_vertex;
-    std::stack<int> discovered;
-    LinkedListNode *adjacent_vertex;
-
-    int *parent = new int[graph->num_vertices]{};
-    bool *visited = new bool[graph->num_vertices]{};
-
-    for (int i = 0; i < graph->num_vertices; i++)
-    {
-        parent[i] = -1;
-        visited[i] = false;
-    }
-    discovered.push(root);
-    visited[root - 1] = true;
-    parent[root - 1] = 0;
-
-    while (discovered.empty() == false)
-    {
-        next_vertex = discovered.top();
-        discovered.pop();
-        adjacent_vertex = graph->array[next_vertex - 1].head;
-        for (int i = 0; i < graph->array[next_vertex - 1].size; i++)
-        {
-            if (visited[adjacent_vertex->value - 1] == false)
-            {
-                visited[adjacent_vertex->value - 1] = true;
-                discovered.push(adjacent_vertex->value);
-                parent[adjacent_vertex->value - 1] = next_vertex;
-            }
-            adjacent_vertex = adjacent_vertex->next;
-        }
-    }
-
-    delete[] visited;
-
-    return parent;
+    // Initialize the stack and the parent array
 }
 
 void GraphSearcher::write_parent_file(int *parent, int root, std::string file_name)
@@ -163,40 +93,129 @@ int GraphSearcher::diameter(AdjacencyList *graph)
  */
 int *GraphSearcher::best_first_search(AdjacencyList *graph, int root)
 {
-    int next_vertex;
-    std::priority_queue<int, std::vector<int>, std::greater<int>> discovered;
-    LinkedListNode *adjacent_vertex;
+    // Initialize the priority queue and the parent array
+}
 
-    int *parent = new int[graph->num_vertices]{};
-    bool *visited = new bool[graph->num_vertices]{};
+/*
+ * @brief A* Search algorithm.
+ * @ details This function implements the A* Search algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::a_star_search(AdjacencyList *graph, int root)
+{
+    // Initialize the priority queue and the parent array
+}
 
-    for (int i = 0; i < graph->num_vertices; i++)
-    {
-        parent[i] = -1;
-        visited[i] = false;
-    }
-    discovered.push(root);
-    visited[root - 1] = true;
-    parent[root - 1] = 0;
+/*
+ * @brief Dijkstra's algorithm.
+ * @ details This function implements Dijkstra's algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::dijkstra(AdjacencyList *graph, int root)
+{
+    // Initialize the priority queue and the parent array
+}
+/*
+ * @brief Topological Sort algorithm.
+ * @ details This function implements the Topological Sort algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::topological_sort(AdjacencyList *graph)
+{
+    // Initialize the stack and the parent array
+}
+/*
+ * @brief Bellman-Ford algorithm.
+ * @ details This function implements the Bellman-Ford algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::bellman_ford(AdjacencyList *graph, int root)
+{
+    // Initialize the parent array
+}
+/*
+ * @brief Floyd-Warshall algorithm.
+ * @ details This function implements the Floyd-Warshall algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::floyd_warshall(AdjacencyList *graph, int root)
+{
+    // Initialize the distance array
+}
+/*
+ * @brief Prim's algorithm.
+ * @ details This function implements Prim's algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::prim(AdjacencyList *graph, int root)
+{
+    // Initialize the priority queue and the parent array
+}
+/*
+ * @brief Kruskal's algorithm.
+ * @ details This function implements Kruskal's algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::kruskal(AdjacencyList *graph, int root)
+{
+    // Initialize the parent array
+}
+/*
+ * @brief Strongly Connected Components algorithm.
+ * @ details This function implements the Strongly Connected Components algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::strongly_connected_components(AdjacencyList *graph)
+{
+    // Initialize the stack and the parent array
+}
+/*
+ * @brief Dense or Sparse algorithm.
+ * @ details This function implements the Dense or Sparse algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::dense_or_sparse(AdjacencyList *graph, int root)
+{
+    // Initialize the parent array
+}
 
-    while (discovered.empty() == false)
-    {
-        next_vertex = discovered.top();
-        discovered.pop();
-        adjacent_vertex = graph->array[next_vertex - 1].head;
-        for (int i = 0; i < graph->array[next_vertex - 1].size; i++)
-        {
-            if (visited[adjacent_vertex->value - 1] == false)
-            {
-                visited[adjacent_vertex->value - 1] = true;
-                discovered.push(adjacent_vertex->value);
-                parent[adjacent_vertex->value - 1] = next_vertex;
-            }
-            adjacent_vertex = adjacent_vertex->next;
-        }
-    }
+/*
+ *
+ * @brief Transposed Graph algorithm.
+ * @ details This function implements the Transposed Graph algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+*/
+int *GraphSearcher::transposed_graph(AdjacencyList *graph)
+{
+    // Initialize the transposed graph
+}
 
-    delete[] visited;
+/*
+ * @brief Square Graph algorithm.
+ * @ details This function implements the Square Graph algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::square_graph(AdjacencyList *graph)
+{
+    // Initialize the square graph
+}
 
-    return parent;
+/*
+ * @brief Universal Sink algorithm.
+ * @ details This function implements the Universal Sink algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::universal_sink(AdjacencyList *graph)
+{
+    // Initialize the universal sink
+}
+
+/*
+ * @brief Semiconnected algorithm.
+ * @ details This function implements the Semiconnected algorithm on a graph represented by an adjacency list.
+ * @param graph Pointer to the adjacency list representing the graph.
+ */
+int *GraphSearcher::semiconnected(AdjacencyList *graph)
+{
+    // Initialize the semiconnected graph
 }

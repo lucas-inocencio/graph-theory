@@ -2,29 +2,29 @@
 
 ## Representations
 
-- [x] AdjacencyMatrix
-- [x] AdjacencyList
-- [x] IncidenceMatrix
+- [-] AdjacencyMatrix
+- [-] AdjacencyList
+- [-] IncidenceMatrix
 
 ## Classic Algorithms
 
-- [x] BreadthFirstSearch
-- [x] DepthFirstSearch
-- [x] BestFirstSearch
-- [ ] AStarSearch
-- [ ] Dijkstra
-- [ ] TopologicalSorting
-- [ ] BellmanFord
-- [ ] FloydWarshall
-- [ ] Prim
-- [ ] Kruskal
-- [ ] StronglyConnectedComponents
+- [-] BreadthFirstSearch
+- [-] DepthFirstSearch
+- [-] BestFirstSearch
+- [-] AStarSearch
+- [-] Dijkstra
+- [-] TopologicalSorting
+- [-] BellmanFord
+- [-] FloydWarshall
+- [-] Prim
+- [-] Kruskal
+- [-] StronglyConnectedComponents
 
 ## Extra Algorithms
 
-- [ ] DenseOrSparse
-- [ ] TransposeGraph
-- [ ] SquareGraph
-- [ ] UniversalSink
-- [x] Diameter
-- [ ] Semiconnected
+- [-] DenseOrSparse
+- [-] TransposeGraph
+- [-] SquareGraph
+- [-] UniversalSink
+- [-] Diameter
+- [-] Semiconnected
