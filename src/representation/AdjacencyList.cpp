@@ -23,7 +23,7 @@ void AdjacencyList::read_from_file(std::string file_name, std::string type)
     }
     else
     {
-        std::cout << "Invalid graph type." << std::endl;
+        std::cout << "Invalid graph type.\n";
     }
 }
 
@@ -41,6 +41,7 @@ void AdjacencyList::read_undirected_unweighted(std::string file_name)
 
     while (infile >> vertex >> adjacent_vertex)
     {
+        std::cout << "Adding edge: " << vertex << " " << adjacent_vertex << "\n";
         adjacency_list[vertex - 1].insert(adjacent_vertex);
         adjacency_list[adjacent_vertex - 1].insert(vertex);
         num_edges++;

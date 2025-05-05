@@ -1,5 +1,13 @@
 #include "../../include/GraphSearcher.hpp"
 
+/*
+ * @brief Constructor for the GraphSearcher class.
+ */
+GraphSearcher::GraphSearcher()
+{
+    // Constructor implementation
+}
+
 /**
  * @brief Perform a breadth-first search on the specified graph, starting from the given root vertex.
  * @param graph Pointer to the adjacency list representing the graph.
@@ -7,7 +15,50 @@
  */
 int *GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
 {
-    // Initialize the queue and the parent array
+    // let queue be a queue of vertices
+    std::queue<int> queue;
+    // let parent be an array of integers
+    int *parent = new int[graph->num_vertices];
+    // let discovered be an array of booleans
+    bool *discovered = new bool[graph->num_vertices];
+    LinkedListNode *linked_list_node = new LinkedListNode();
+    // initialize parent and discovered arrays
+    for (int i = 0; i < graph->num_vertices; i++)
+    {
+        parent[i] = -1;
+        discovered[i] = false;
+    }
+    // label root as discovered
+    discovered[root] = true;
+    // enqueue root
+    queue.push(root);
+    // while queue is not empy
+    while (!queue.empty())
+    {
+        // for all edges from v to w in G.adjacentEdges(v) do
+        int vertex = queue.front();
+        queue.pop();
+        std::cout << "Visiting vertex: " << vertex << std::endl;
+        LinkedListNode *linked_list_node = graph->adjacency_list[vertex].head;
+        for (int i = 0; i < graph->adjacency_list[vertex].size; i++)
+        {   
+            int neighbor = linked_list_node->value;
+            // if w is not labeled as explored then
+            if (discovered[neighbor - 1] == false)
+            {
+                // label w as explored
+                discovered[neighbor - 1] = true;
+                //        w.parent := v
+                parent[neighbor - 1] = vertex;
+                //        Q.enqueue(w)
+                queue.push(neighbor - 1);
+            }
+            // move to the next neighbor
+            linked_list_node = linked_list_node->next;
+        }
+    }
+
+    return parent;
 }
 
 /**
@@ -18,6 +69,7 @@ int *GraphSearcher::breadth_first_search(AdjacencyList *graph, int root)
 int *GraphSearcher::depth_first_search(AdjacencyList *graph, int root)
 {
     // Initialize the stack and the parent array
+    return nullptr;
 }
 
 void GraphSearcher::write_parent_file(int *parent, int root, std::string file_name)
@@ -94,6 +146,7 @@ int GraphSearcher::diameter(AdjacencyList *graph)
 int *GraphSearcher::best_first_search(AdjacencyList *graph, int root)
 {
     // Initialize the priority queue and the parent array
+    return nullptr;
 }
 
 /*
@@ -104,6 +157,7 @@ int *GraphSearcher::best_first_search(AdjacencyList *graph, int root)
 int *GraphSearcher::a_star_search(AdjacencyList *graph, int root)
 {
     // Initialize the priority queue and the parent array
+    return nullptr;
 }
 
 /*
@@ -114,6 +168,8 @@ int *GraphSearcher::a_star_search(AdjacencyList *graph, int root)
 int *GraphSearcher::dijkstra(AdjacencyList *graph, int root)
 {
     // Initialize the priority queue and the parent array
+    int *parent = new int[graph->num_vertices];
+    return parent;
 }
 /*
  * @brief Topological Sort algorithm.
@@ -123,6 +179,7 @@ int *GraphSearcher::dijkstra(AdjacencyList *graph, int root)
 int *GraphSearcher::topological_sort(AdjacencyList *graph)
 {
     // Initialize the stack and the parent array
+    return nullptr;
 }
 /*
  * @brief Bellman-Ford algorithm.
@@ -132,6 +189,7 @@ int *GraphSearcher::topological_sort(AdjacencyList *graph)
 int *GraphSearcher::bellman_ford(AdjacencyList *graph, int root)
 {
     // Initialize the parent array
+    return nullptr;
 }
 /*
  * @brief Floyd-Warshall algorithm.
@@ -141,6 +199,7 @@ int *GraphSearcher::bellman_ford(AdjacencyList *graph, int root)
 int *GraphSearcher::floyd_warshall(AdjacencyList *graph, int root)
 {
     // Initialize the distance array
+    return nullptr;
 }
 /*
  * @brief Prim's algorithm.
@@ -150,6 +209,7 @@ int *GraphSearcher::floyd_warshall(AdjacencyList *graph, int root)
 int *GraphSearcher::prim(AdjacencyList *graph, int root)
 {
     // Initialize the priority queue and the parent array
+    return nullptr;
 }
 /*
  * @brief Kruskal's algorithm.
@@ -159,6 +219,7 @@ int *GraphSearcher::prim(AdjacencyList *graph, int root)
 int *GraphSearcher::kruskal(AdjacencyList *graph, int root)
 {
     // Initialize the parent array
+    return nullptr;
 }
 /*
  * @brief Strongly Connected Components algorithm.
@@ -168,6 +229,7 @@ int *GraphSearcher::kruskal(AdjacencyList *graph, int root)
 int *GraphSearcher::strongly_connected_components(AdjacencyList *graph)
 {
     // Initialize the stack and the parent array
+    return nullptr;
 }
 /*
  * @brief Dense or Sparse algorithm.
@@ -177,6 +239,7 @@ int *GraphSearcher::strongly_connected_components(AdjacencyList *graph)
 int *GraphSearcher::dense_or_sparse(AdjacencyList *graph, int root)
 {
     // Initialize the parent array
+    return nullptr;
 }
 
 /*
@@ -188,6 +251,7 @@ int *GraphSearcher::dense_or_sparse(AdjacencyList *graph, int root)
 int *GraphSearcher::transposed_graph(AdjacencyList *graph)
 {
     // Initialize the transposed graph
+    return nullptr;
 }
 
 /*
@@ -198,6 +262,7 @@ int *GraphSearcher::transposed_graph(AdjacencyList *graph)
 int *GraphSearcher::square_graph(AdjacencyList *graph)
 {
     // Initialize the square graph
+    return nullptr;
 }
 
 /*
@@ -208,6 +273,7 @@ int *GraphSearcher::square_graph(AdjacencyList *graph)
 int *GraphSearcher::universal_sink(AdjacencyList *graph)
 {
     // Initialize the universal sink
+    return nullptr;
 }
 
 /*
@@ -218,4 +284,5 @@ int *GraphSearcher::universal_sink(AdjacencyList *graph)
 int *GraphSearcher::semiconnected(AdjacencyList *graph)
 {
     // Initialize the semiconnected graph
+    return nullptr;
 }

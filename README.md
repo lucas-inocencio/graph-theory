@@ -15,7 +15,7 @@ g++ main.cpp
 ./a.out (Linux) or ./a.exe (Windows)
 
 docker build --tag 'graph_theory' .
-docker run --detach 'graph_theory'
+docker run --detach --name graph_theory_container 'graph_theory'
 
 cmake .
 make

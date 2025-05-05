@@ -273,6 +273,30 @@ src/representation/IncidenceMatrix.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/representation/IncidenceMatrix.cpp.s
 .PHONY : src/representation/IncidenceMatrix.cpp.s
 
+src/search/GraphSearcher.o: src/search/GraphSearcher.cpp.o
+.PHONY : src/search/GraphSearcher.o
+
+# target to build an object file
+src/search/GraphSearcher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/search/GraphSearcher.cpp.o
+.PHONY : src/search/GraphSearcher.cpp.o
+
+src/search/GraphSearcher.i: src/search/GraphSearcher.cpp.i
+.PHONY : src/search/GraphSearcher.i
+
+# target to preprocess a source file
+src/search/GraphSearcher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/search/GraphSearcher.cpp.i
+.PHONY : src/search/GraphSearcher.cpp.i
+
+src/search/GraphSearcher.s: src/search/GraphSearcher.cpp.s
+.PHONY : src/search/GraphSearcher.s
+
+# target to generate assembly for a file
+src/search/GraphSearcher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/search/GraphSearcher.cpp.s
+.PHONY : src/search/GraphSearcher.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -300,6 +324,9 @@ help:
 	@echo "... src/representation/IncidenceMatrix.o"
 	@echo "... src/representation/IncidenceMatrix.i"
 	@echo "... src/representation/IncidenceMatrix.s"
+	@echo "... src/search/GraphSearcher.o"
+	@echo "... src/search/GraphSearcher.i"
+	@echo "... src/search/GraphSearcher.s"
 .PHONY : help
 
 

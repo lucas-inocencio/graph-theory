@@ -13,6 +13,8 @@
 class GraphSearcher
 {
 public:
+    GraphSearcher();
+    ~GraphSearcher() = default;
     int *breadth_first_search(AdjacencyList *, int);
     int *depth_first_search(AdjacencyList *, int);
     int distance(AdjacencyList *, int, int);

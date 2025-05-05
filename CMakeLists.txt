@@ -9,6 +9,7 @@ set(SOURCES
 	./src/representation/AdjacencyList.cpp
 	./src/representation/AdjacencyMatrix.cpp
 	./src/representation/IncidenceMatrix.cpp
+	./src/search/GraphSearcher.cpp
 )
 
 set(HEADERS
@@ -17,6 +18,7 @@ set(HEADERS
 	./include/AdjacencyList.hpp
 	./include/AdjacencyMatrix.hpp
 	./include/IncidenceMatrix.hpp
+	./include/GraphSearcher.hpp
 )
 
 # Add executable target
